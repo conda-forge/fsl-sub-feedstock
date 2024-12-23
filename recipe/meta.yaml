@@ -6,7 +6,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/fsl_sub-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/fsl_sub-{{ version }}.tar.gz
   sha256: a6b115bce5f9e95c63df2e4a13a7d36c29e9e2d1ad5e8822bfe61dbce32b3fc4
 
 build:
@@ -18,14 +18,14 @@ build:
     - fsl_sub_update=fsl_sub.cmdline:update
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  number: 1
 
 requirements:
   host:
-    - python >=3.7
+    - python {{ python_min }}
     - pip
   run:
-    - python >=3.7
+    - python >={{ python_min }}
     - ruamel.yaml >=0.16.7
 
 test:
@@ -35,6 +35,7 @@ test:
     - pip check
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://git.fmrib.ox.ac.uk/fsl/fsl_sub
