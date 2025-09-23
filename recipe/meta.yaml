@@ -1,5 +1,5 @@
 {% set name = "fsl-sub" %}
-{% set version = "2.9.0" %}
+{% set version = "2.9.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/fsl_sub-{{ version }}.tar.gz
-  sha256: 5d843777416be2a16e5cec2bb0c4a68434f14c11ea64723d3b9658c841270321
+  sha256: cdf8449862d01a515d6248aa07e467badaa4b78ffcc79875d35f71796d5dab88
 
 build:
   entry_points:
